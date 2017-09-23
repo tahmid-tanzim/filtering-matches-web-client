@@ -1,77 +1,80 @@
 //@import 'vars';
 //@import 'typography';
 
+@import "lib/rzslider";
+
 body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -text-align: center;
-  color: #2C3E50;
-  margin-top: 5px;
-  font-size: 14px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -text-align: center;
+    color: #2C3E50;
+    margin-top: 5px;
+    font-size: 14px;
 
-  .navbar {
-    border-radius: 0.25rem;
-    margin-bottom: 10px;
-  }
-
-  label {
-    margin-bottom: 0.0rem;
-  }
-
-  button, .pointer {
-    cursor: pointer;
-  }
-
-  .btn-without-label {
-    margin-top: 1.5rem
-  }
-
-  /* Transition Effects */
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-  }
-
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0
-  }
-
-  .card-columns {
-    margin-top: 10px;
-    .card {
-      //margin-top: 5px;
-      .card-head {
-        position: relative;
-        //display: block;
-        .card-img-top {
-          height: 160px;
-          width: 100%;
-        }
-        i {
-          display: block;
-          position: absolute;
-          right: 1.25rem;
-          bottom: 0.5rem;
-        }
-      }
-
-      .card-body {
-        .card-title {
-          small {
-            font-size: 65%;
-          }
-          span.badge {
-            .text-percent {
-              font-size: 75%;
-            }
-          }
-        }
-        .table {
-          margin-top: 1.25rem;
-        }
-      }
+    .navbar {
+        border-radius: 0.25rem;
+        margin-bottom: 10px;
     }
-  }
+
+    label {
+        margin-bottom: 0.0rem;
+    }
+
+    button, .pointer {
+        cursor: pointer;
+    }
+
+    .btn-without-label {
+        margin-top: 1.5rem
+    }
+
+    /* Transition Effects */
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        opacity: 0
+    }
+
+    .card-columns {
+        margin-top: 10px;
+        .card {
+            //margin-top: 5px;
+            .card-head {
+                position: relative;
+                //display: block;
+                .card-img-top {
+                    height: 160px;
+                    width: 100%;
+                }
+                i {
+                    display: block;
+                    position: absolute;
+                    right: 1.25rem;
+                    bottom: 0.5rem;
+                }
+            }
+
+            .card-body {
+                .card-title {
+                    small {
+                        font-size: 65%;
+                    }
+                    span.badge {
+                        .text-percent {
+                            font-size: 75%;
+                        }
+                    }
+                }
+                .table {
+                    margin-top: 1.20rem;
+                }
+            }
+        }
+    }
 
 }
 

@@ -5,15 +5,15 @@ let startTime;
 
 export default {
 
-  start() {
-    startTime = process.hrtime();
-    gutil.log(`${gutil.colors.green('Rebundling')}...`);
-  },
+    start() {
+        startTime = process.hrtime();
+        gutil.log(`${gutil.colors.green('Rebundling')}...`);
+    },
 
-  end() {
-    const taskTime = process.hrtime(startTime);
-    const prettyTime = prettyHrtime(taskTime);
-    gutil.log(`Finished ${gutil.colors.green('rebundling')} in ${gutil.colors.magenta(prettyTime)}`);
-  }
+    end() {
+        const taskTime = process.hrtime(startTime);
+        const prettyTime = prettyHrtime(taskTime);
+        gutil.log(`Finished ${gutil.colors.green('rebundling')} in ${gutil.colors.magenta(prettyTime)}`);
+    }
 
 };

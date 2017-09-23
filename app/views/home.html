@@ -1,79 +1,93 @@
 <div class="row">
-  <div class="col">
-    <div data-ng-include="'header.html'"></div>
+    <div class="col">
+        <div data-ng-include="'header.html'"></div>
 
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Search</h4>
-        <form>
-          <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="has_photo">Has Photo</label>
-            <select class="form-control" id="has_photo" data-ng-model="home.filter.has_photo">
-              <option value=null>All</option>
-              <option value=true>Yes</option>
-              <option value=false>No</option>
-            </select>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="in_contact">In Contact</label>
-            <select class="form-control" id="in_contact"  data-ng-model="home.filter.in_contact">
-              <option value="null">All</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="favourite">Favourite</label>
-            <select class="form-control" id="favourite" data-ng-model="home.filter.favourite">
-              <option value="null">All</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
-          </div>
-        </form>
-      </div>
-    </div>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Search</h4>
+<pre>{{home.filter | json}}</pre>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="has_photo">Has Photo</label>
+                            <select class="form-control" id="has_photo" data-ng-model="home.filter.has_photo" data-ng-options="o.value as o.name for o in home.options">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="in_contact">In Contact</label>
+                            <select class="form-control" id="in_contact" data-ng-model="home.filter.in_contact" data-ng-options="o.value as o.name for o in home.options">
+                                <option value="null">All</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="favourite">Favourite</label>
+                            <select class="form-control" id="favourite" data-ng-model="home.filter.favourite" data-ng-options="o.value as o.name for o in home.options">
+                                <option value="null">All</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <rzslider
+                                rz-slider-model="home.filter.slider.min"
+                                rz-slider-high="home.filter.slider.max"
+                                rz-slider-options="home.filter.slider.options"></rzslider>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <div class="alert alert-secondary" role="alert" data-ng-hide="home.persons.length">
-      Sorry! No Data Available ...
-    </div>
-    <div class="card-columns" data-ng-show="home.persons.length">
-      <div class="card" data-ng-repeat="item in home.persons">
-        <div class="card-head">
-          <img  class="card-img-top"
-               alt="100%x160"
-               data-ng-src="{{ item.main_photo || 'images/default-thumbnail.jpg' }}"
-               data-holder-rendered="true">
-          <i class="fa fa-heart fa-2x text-danger" aria-hidden="true" data-ng-if="item.favourite"  data-toggle="tooltip" data-placement="right" title="Favourite"></i>
+        <div class="alert alert-secondary" role="alert" data-ng-hide="home.persons.length">
+            Sorry! No Data Available ...
         </div>
-        <div class="card-body">
-          <h4 class="card-title">{{ item.display_name }} <small>{{ item.age }} years old</small> <span class="badge badge-primary pull-right" data-toggle="tooltip" data-placement="right" title="Compatibility Score">{{item.compatibility_score * 100}}<small class="text-percent">%</small></span></h4>
-          <table class="table table-sm">
-            <tbody>
-            <tr>
-              <th width="40%" scope="row">Job Title</th>
-              <td width="60%">{{ item.job_title }}</td>
-            </tr>
-            <tr>
-              <th width="40%" scope="row">Religion</th>
-              <td width="60%">{{ item.religion }}</td>
-            </tr>
-            <tr>
-              <th width="40%" scope="row">Contacts</th>
-              <td width="60%">{{ item.contacts_exchanged }}</td>
-            </tr>
-            <tr>
-              <th width="40%" scope="row">Height</th>
-              <td width="60%">{{ item.height_in_cm }} cm</td>
-            </tr>
-            </tbody>
-          </table>
-          <p class="card-text"><small class="text-muted">Location: {{ item.city.name }}, 30 km</small></p>
+        <div class="card-columns" data-ng-show="home.persons.length">
+            <div class="card" data-ng-repeat="item in home.persons">
+                <div class="card-head">
+                    <img class="card-img-top"
+                         alt="100%x160"
+                         data-ng-src="{{ item.main_photo || 'images/default-thumbnail.jpg' }}"
+                         data-holder-rendered="true">
+                    <i class="fa fa-heart fa-2x text-danger" aria-hidden="true" data-ng-if="item.favourite"
+                       data-toggle="tooltip"
+                       data-placement="right" title="Favourite"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ item.display_name }}
+                        <small>{{ item.age }} years old</small>
+            <span class="badge badge-primary pull-right" data-toggle="tooltip" data-placement="right"
+                  title="Compatibility Score">{{item.compatibility_score * 100}}<small class="text-percent">%
+            </small></span></h4>
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <th width="40%" scope="row">Job Title</th>
+                            <td width="60%">{{ item.job_title }}</td>
+                        </tr>
+                        <tr>
+                            <th width="40%" scope="row">Religion</th>
+                            <td width="60%">{{ item.religion }}</td>
+                        </tr>
+                        <tr>
+                            <th width="40%" scope="row">Contacts</th>
+                            <td width="60%">{{ item.contacts_exchanged }}</td>
+                        </tr>
+                        <tr>
+                            <th width="40%" scope="row">Height</th>
+                            <td width="60%">{{ item.height_in_cm }} cm</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="card-text">
+                        <small class="text-muted">Location: {{ item.city.name }}, 30 km</small>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 

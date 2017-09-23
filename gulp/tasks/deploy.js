@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 
-gulp.task('deploy', ['prod'], function() {
+gulp.task('deploy', ['prod'], function () {
 
-  // Any deployment logic should go here
+    // Any deployment logic should go here
 
 });
