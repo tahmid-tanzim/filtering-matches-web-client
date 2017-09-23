@@ -7,11 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -text-align: center;
   color: #2C3E50;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 14px;
 
   .navbar {
     border-radius: 0.25rem;
+    margin-bottom: 10px;
   }
 
   label {
@@ -35,41 +36,43 @@ body {
     opacity: 0
   }
 
-  .card {
-    .card-head {
-      position: relative;
-      //display: block;
-      .card-img-top {
-        height: 160px;
-        width: 100%;
-      }
-
-      i {
-        display: block;
-        position: absolute;
-        right: 1.25rem;
-        bottom: 0.5rem;
-      }
-    }
-
-    .card-body {
-      .card-title {
-        small {
-          font-size: 65%;
+  .card-columns {
+    margin-top: 10px;
+    .card {
+      //margin-top: 5px;
+      .card-head {
+        position: relative;
+        //display: block;
+        .card-img-top {
+          height: 160px;
+          width: 100%;
         }
+        i {
+          display: block;
+          position: absolute;
+          right: 1.25rem;
+          bottom: 0.5rem;
+        }
+      }
 
-        span.badge {
-          .text-percent {
-            font-size: 75%;
+      .card-body {
+        .card-title {
+          small {
+            font-size: 65%;
+          }
+          span.badge {
+            .text-percent {
+              font-size: 75%;
+            }
           }
         }
-      }
-
-      .table {
-        margin-top: 1.25rem;
+        .table {
+          margin-top: 1.25rem;
+        }
       }
     }
   }
+
 }
 
 

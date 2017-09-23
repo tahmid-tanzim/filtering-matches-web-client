@@ -23,13 +23,9 @@ const requires = [
 
 // mount on window for testing
 window.app = angular.module('app', requires);
-
 angular.module('app').constant('AppSettings', constants);
-
 angular.module('app').config(onConfig);
-
 angular.module('app').run(onRun);
-
 angular.bootstrap(document, ['app'], {
   strictDi: true
 });

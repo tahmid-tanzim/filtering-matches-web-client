@@ -3,7 +3,11 @@ function DashboardCtrl(HTTP) {
   // ViewModel
   const vm = this;
 
-  vm.title = 'Hello World';
+  vm.filter = {
+    has_photo: true,
+    in_contact: false,
+    favourite: null
+  };
 
   const {matches} = HTTP.matches();
   vm.persons = matches;

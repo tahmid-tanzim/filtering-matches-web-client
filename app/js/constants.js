@@ -1,6 +1,5 @@
 const AppSettings = {
-  appTitle: 'Example Application',
-  apiUrl: '/api/v1'
+  appTitle: 'Filtering Matches Application'
 };
 
 export default AppSettings;
