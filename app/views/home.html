@@ -3,93 +3,41 @@
     <div data-ng-include="'header.html'"></div>
     <h1 class="heading -large">{{ home.title | ExampleFilter }}</h1>
 
-    <!-- <h3 class="heading -medium">Here is a fancy number served up courtesy of Angular: <span class="number-example">{{ home.number }}</span></h3>
-
-     <img src="images/angular.png" height="100" />
-     <img src="images/gulp.png" height="100" />
-     <img src="images/browserify.png" height="100" />
-
-     <hr/>
-     <div example-directive title="WOW!" click-message="You clicked me!">Directive is not loaded.</div>-->
-
     <div class="card-columns">
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
+      <div class="card" data-ng-repeat="item in home.persons">
+        <div class="card-head">
+          <img  class="card-img-top"
+               alt="100%x160"
+               data-ng-src="{{ item.main_photo || 'images/default-thumbnail.jpg' }}"
+               data-holder-rendered="true">
+          <i class="fa fa-heart fa-2x text-danger" aria-hidden="true" data-ng-if="item.favourite"  data-toggle="tooltip" data-placement="right" title="Favourite"></i>
+        </div>
         <div class="card-body">
-          <h4 class="card-title">display_name</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h4 class="card-title">{{ item.display_name }} <small>{{ item.age }} years old</small> <span class="badge badge-primary pull-right" data-toggle="tooltip" data-placement="right" title="Compatibility Score">{{item.compatibility_score * 100}}<small class="text-percent">%</small></span></h4>
+          <table class="table table-sm">
+            <tbody>
+            <tr>
+              <th width="40%" scope="row">Job Title</th>
+              <td width="60%">{{ item.job_title }}</td>
+            </tr>
+            <tr>
+              <th width="40%" scope="row">Religion</th>
+              <td width="60%">{{ item.religion }}</td>
+            </tr>
+            <tr>
+              <th width="40%" scope="row">Contacts</th>
+              <td width="60%">{{ item.contacts_exchanged }}</td>
+            </tr>
+            <tr>
+              <th width="40%" scope="row">Height</th>
+              <td width="60%">{{ item.height_in_cm }} cm</td>
+            </tr>
+            </tbody>
+          </table>
+          <p class="card-text"><small class="text-muted">Location: {{ item.city.name }}, 30 km</small></p>
         </div>
       </div>
-
-
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top" data-src="holder.js/100px160/" alt="100%x160"
-             src="http://thecatapi.com/api/images/get?format=src&type=gif"
-             data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-
     </div>
-
   </div>
 </div>
 

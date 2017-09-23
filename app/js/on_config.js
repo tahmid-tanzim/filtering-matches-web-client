@@ -1,3 +1,5 @@
+import { element } from 'angular';
+
 function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider) {
   'ngInject';
 
@@ -20,6 +22,10 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
 
   $urlRouterProvider.otherwise('/');
 
+  // Enable all Tooltips
+  element(() => {
+    element('[data-toggle="tooltip"]').tooltip();
+  });
 }
 
 export default OnConfig;

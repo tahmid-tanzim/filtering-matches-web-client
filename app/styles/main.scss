@@ -34,6 +34,42 @@ body {
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0
   }
+
+  .card {
+    .card-head {
+      position: relative;
+      //display: block;
+      .card-img-top {
+        height: 160px;
+        width: 100%;
+      }
+
+      i {
+        display: block;
+        position: absolute;
+        right: 1.25rem;
+        bottom: 0.5rem;
+      }
+    }
+
+    .card-body {
+      .card-title {
+        small {
+          font-size: 65%;
+        }
+
+        span.badge {
+          .text-percent {
+            font-size: 75%;
+          }
+        }
+      }
+
+      .table {
+        margin-top: 1.25rem;
+      }
+    }
+  }
 }
 
 
