@@ -21,14 +21,6 @@ function Utility() {
         return d.toFixed(dp);
     };
 
-
-    var lat20 = 50.768036,
-        lon20 = 0.290472,
-        lat10 = 51.509865,
-        lon10 = -0.118092;
-
-    /* 87.27340233087423 */
-    console.log("Distance in km: ", service.getDistanceFromLatLonInKm(lat10, lon10, lat20, lon20));
     return service;
 
 }

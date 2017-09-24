@@ -5,37 +5,57 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Search</h4>
-<pre>{{home.filter | json}}</pre>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="has_photo">Has Photo</label>
-                            <select class="form-control" id="has_photo" data-ng-model="home.filter.has_photo" data-ng-options="o.value as o.name for o in home.options">
+                            <select class="form-control form-control-sm" id="has_photo" data-ng-model="home.filter.has_photo" data-ng-options="o.value as o.name for o in home.options">
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="in_contact">In Contact</label>
-                            <select class="form-control" id="in_contact" data-ng-model="home.filter.in_contact" data-ng-options="o.value as o.name for o in home.options">
-                                <option value="null">All</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
+                            <select class="form-control form-control-sm" id="in_contact" data-ng-model="home.filter.in_contact" data-ng-options="o.value as o.name for o in home.options"></select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="favourite">Favourite</label>
-                            <select class="form-control" id="favourite" data-ng-model="home.filter.favourite" data-ng-options="o.value as o.name for o in home.options">
-                                <option value="null">All</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
+                            <select class="form-control form-control-sm" id="favourite" data-ng-model="home.filter.favourite" data-ng-options="o.value as o.name for o in home.options"></select>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-6">
-                            <rzslider
-                                rz-slider-model="home.filter.slider.min"
-                                rz-slider-high="home.filter.slider.max"
-                                rz-slider-options="home.filter.slider.options"></rzslider>
+                        <div class="form-group col-md-3">
+                            <label for="compatibility_score">Compatibility Score</label>
+                            <div id="compatibility_score">
+                                <rzslider
+                                    rz-slider-model="home.filter.compatibility_score.min"
+                                    rz-slider-high="home.filter.compatibility_score.max"
+                                    rz-slider-options="{floor: 1, ceil: 99}"></rzslider>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="age">Age</label>
+                            <div id="age">
+                                <rzslider
+                                    rz-slider-model="home.filter.age.min"
+                                    rz-slider-high="home.filter.age.max"
+                                    rz-slider-options="{floor: 18, ceil: 95}"></rzslider>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="height">Height</label>
+                            <div id="height">
+                                <rzslider
+                                    rz-slider-model="home.filter.height.min"
+                                    rz-slider-high="home.filter.height.max"
+                                    rz-slider-options="{floor: 135, ceil: 210}"></rzslider>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="height">Distance</label>
+                            <div id="distance">
+                                <rzslider
+                                    rz-slider-model="home.filter.distance_in_km"
+                                    rz-slider-options="{floor: 0, ceil: 330}"></rzslider>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -83,7 +103,7 @@
                         </tbody>
                     </table>
                     <p class="card-text">
-                        <small class="text-muted">Location: {{ item.city.name }}, 30 km</small>
+                        <small class="text-muted">Location: {{ item.city.name }}, {{ item.city | distance }} km</small>
                     </p>
                 </div>
             </div>
