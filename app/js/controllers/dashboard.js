@@ -1,4 +1,4 @@
-function DashboardCtrl($httpParamSerializer, HTTP) {
+function DashboardCtrl(HTTP) {
     'ngInject';
 
     const vm = this;
@@ -23,15 +23,18 @@ function DashboardCtrl($httpParamSerializer, HTTP) {
     };
 
     vm.options = [
-        { name: 'All',  value: null },
-        { name: 'Yes',  value: true },
-        { name: 'No',   value: false }
+        {name: 'All', value: null},
+        {name: 'Yes', value: true},
+        {name: 'No', value: false}
     ];
 
-    const {matches} = HTTP.matches();
-    vm.persons = matches;
-
-    console.log($httpParamSerializer(vm.filter));
+    HTTP.get(vm.filter)
+        .then(({data}) => {
+            console.log("Success: ", JSON.stringify(data.matches, null, 2));
+            vm.persons = data.matches;
+        }, ({data, status}) => {
+            console.log("Error: ", data, status);
+        });
 }
 
 export default {
