@@ -7,61 +7,76 @@
                 <div class="row justify-content-center">
                     <div class="col-10">
                         <form data-ng-submit="home.search()" novalidate>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="has_photo">Has Photo</label>
-                                <select class="form-control form-control-sm" id="has_photo" data-ng-model="home.filter.has_photo" data-ng-options="o.value as o.name for o in home.options">
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="in_contact">In Contact</label>
-                                <select class="form-control form-control-sm" id="in_contact" data-ng-model="home.filter.in_contact" data-ng-options="o.value as o.name for o in home.options"></select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="favourite">Favourite</label>
-                                <select class="form-control form-control-sm" id="favourite" data-ng-model="home.filter.favourite" data-ng-options="o.value as o.name for o in home.options"></select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                <label for="age">Age</label>
-                                <div id="age">
-                                    <rzslider
-                                        rz-slider-model="home.filter.age[0]"
-                                        rz-slider-high="home.filter.age[1]"
-                                        rz-slider-options="{floor: 18, ceil: 95}"></rzslider>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="has_photo">Has Photo</label>
+                                    <select class="form-control form-control-sm" id="has_photo"
+                                            data-ng-model="home.filter.has_photo"
+                                            data-ng-options="o.value as o.name for o in home.options"
+                                            data-ng-change="home.search()">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="in_contact">In Contact</label>
+                                    <select class="form-control form-control-sm" id="in_contact"
+                                            data-ng-model="home.filter.in_contact"
+                                            data-ng-options="o.value as o.name for o in home.options"
+                                            data-ng-change="home.search()">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="favourite">Favourite</label>
+                                    <select class="form-control form-control-sm" id="favourite"
+                                            data-ng-model="home.filter.favourite"
+                                            data-ng-options="o.value as o.name for o in home.options"
+                                            data-ng-change="home.search()">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="distance">Distance</label>
+                                    <select class="form-control form-control-sm" id="distance"
+                                            data-ng-model="home.filter.distance_in_km"
+                                            data-ng-options="o.value as o.name for o in [{name: 'All', value: null}, {name: 'Less then 30 km', value: 0}, {name: '30 km to 300 km', value: 1}, {name: 'Greater then 300 km', value: 2}]"
+                                            data-ng-change="home.search()">
+                                    </select>
                                 </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="height">Height</label>
-                                <div id="height">
-                                    <rzslider
-                                        rz-slider-model="home.filter.height[0]"
-                                        rz-slider-high="home.filter.height[1]"
-                                        rz-slider-options="{floor: 135, ceil: 210}"></rzslider>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="age">Age</label>
+                                    <div id="age">
+                                        <rzslider
+                                            rz-slider-model="home.filter.age[0]"
+                                            rz-slider-high="home.filter.age[1]"
+                                            rz-slider-options="{floor: 18, ceil: 95}"></rzslider>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3 ml-auto">
+                                    <label for="height">Height</label>
+
+                                    <div id="height">
+                                        <rzslider
+                                            rz-slider-model="home.filter.height[0]"
+                                            rz-slider-high="home.filter.height[1]"
+                                            rz-slider-options="{floor: 135, ceil: 210}"></rzslider>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 ml-auto">
+                                    <label for="compatibility_score">Compatibility Score</label>
+
+                                    <div id="compatibility_score">
+                                        <rzslider
+                                            rz-slider-model="home.filter.compatibility_score[0]"
+                                            rz-slider-high="home.filter.compatibility_score[1]"
+                                            rz-slider-options="{floor: 1, ceil: 99}"></rzslider>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="compatibility_score">Compatibility Score</label>
-                                <div id="compatibility_score">
-                                    <rzslider
-                                        rz-slider-model="home.filter.compatibility_score[0]"
-                                        rz-slider-high="home.filter.compatibility_score[1]"
-                                        rz-slider-options="{floor: 1, ceil: 99}"></rzslider>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="height">Distance</label>
-                                <div id="distance">
-                                    <rzslider
-                                        rz-slider-model="home.filter.distance_in_km"
-                                        rz-slider-options="{floor: 0, ceil: 330}"></rzslider>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-outline-primary btn-sm" >Search</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-ng-click="home.init()">Reset</button>
-                    </form>
+                            <button type="submit" class="btn btn-outline-primary btn-sm">Search</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-ng-click="home.init()">
+                                Reset
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

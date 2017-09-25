@@ -27,7 +27,7 @@ function DashboardCtrl(HTTP) {
             compatibility_score: [1, 99],
             age: [18, 95],
             height: [135, 210],
-            distance_in_km: 0
+            distance_in_km: null
         };
         vm.search();
     };
