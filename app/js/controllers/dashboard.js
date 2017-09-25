@@ -15,6 +15,7 @@ function DashboardCtrl(HTTP) {
                 console.log("Success: ", JSON.stringify(data.matches, null, 2));
                 vm.persons = data.matches;
             }, ({data, status}) => {
+                //TODO: Alert for 400 Bad Requests
                 console.log("Error: ", data, status);
             });
     };
@@ -27,7 +28,7 @@ function DashboardCtrl(HTTP) {
             compatibility_score: [1, 99],
             age: [18, 95],
             height: [135, 210],
-            distance_in_km: null
+            distance_index: null
         };
         vm.search();
     };

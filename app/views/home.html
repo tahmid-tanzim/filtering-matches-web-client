@@ -35,7 +35,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="distance">Distance</label>
                                     <select class="form-control form-control-sm" id="distance"
-                                            data-ng-model="home.filter.distance_in_km"
+                                            data-ng-model="home.filter.distance_index"
                                             data-ng-options="o.value as o.name for o in [{name: 'All', value: null}, {name: 'Less then 30 km', value: 0}, {name: '30 km to 300 km', value: 1}, {name: 'Greater then 300 km', value: 2}]"
                                             data-ng-change="home.search()">
                                     </select>

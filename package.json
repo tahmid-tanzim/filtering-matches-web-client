@@ -8,17 +8,6 @@
         "url": "https://github.com/tahmid-tanzim/filtering-matches-web-client.git"
     },
     "license": "MIT",
-    "keywords": [
-        "express",
-        "gulp",
-        "browserify",
-        "angular",
-        "sass",
-        "karma",
-        "jasmine",
-        "protractor",
-        "boilerplate"
-    ],
     "private": false,
     "engines": {
         "node": "~8.2.x"
