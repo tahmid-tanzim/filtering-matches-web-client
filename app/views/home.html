@@ -123,7 +123,7 @@
                         </tbody>
                     </table>
                     <p class="card-text">
-                        <small class="text-muted">Location: {{ item.city.name }}, {{ item.city | distance }} km</small>
+                        <small class="text-muted">Location: {{ item.city.name }}, {{ item.city.distance_in_km | number:1 }} km</small>
                     </p>
                 </div>
             </div>
