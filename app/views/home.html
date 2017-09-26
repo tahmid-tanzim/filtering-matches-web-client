@@ -85,6 +85,7 @@
         <div class="alert alert-secondary" role="alert" data-ng-hide="home.persons.length">
             Sorry! No Data Available ...
         </div>
+
         <div class="card-columns" data-ng-show="home.persons.length">
             <div class="card" data-ng-repeat="item in home.persons">
                 <div class="card-head">
@@ -99,9 +100,10 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ item.display_name }}
                         <small>{{ item.age }} years old</small>
-            <span class="badge badge-primary pull-right" data-toggle="tooltip" data-placement="right"
-                  title="Compatibility Score">{{item.compatibility_score * 100}}<small class="text-percent">%
-            </small></span></h4>
+                        <span class="badge badge-primary pull-right" data-toggle="tooltip" data-placement="right"
+                              title="Compatibility Score">{{item.compatibility_score * 100}}<small class="text-percent">%</small>
+                        </span>
+                    </h4>
                     <table class="table table-sm">
                         <tbody>
                         <tr>

@@ -18,7 +18,7 @@ describe('Unit: HTTP Service', function () {
     });
 
     it('should retrieve data', function (done) {
-        http.expect('GET', 'http://localhost:8080/api/v1/person?age=40&age=60&compatibility_score=80&compatibility_score=99&distance_index=1&favourite=false&has_photo=true&height=135&height=151&in_contact=true').respond(200, { matches: [ Object({ display_name: 'Clare', age: 40, job_title: 'Accountant', height_in_cm: 144, city: Object({ name: 'Bournemouth', lat: 50.720806, lon: -1.904755 }), main_photo: 'http://thecatapi.com/api/images/get?format=src&type=gif', compatibility_score: 0.9, contacts_exchanged: 8, favourite: false, religion: 'Christian' }) ] });
+        http.expect('GET', 'http://localhost:8080/api/v1/person?age=40&age=60&compatibility_score=80&compatibility_score=99&distance_index=1&favourite=false&has_photo=true&height=135&height=151&in_contact=true').respond(200, { matches: [ Object({ display_name: 'Clare', age: 40, job_title: 'Accountant', height_in_cm: 144, city: Object({ name: 'Bournemouth', lat: 50.720806, lon: -1.904755, distance_in_km: 192.12345678 }), main_photo: 'http://thecatapi.com/api/images/get?format=src&type=gif', compatibility_score: 0.9, contacts_exchanged: 8, favourite: false, religion: 'Christian' }) ] });
 
         var filter = {
             age: [40, 60],
@@ -41,7 +41,8 @@ describe('Unit: HTTP Service', function () {
                             city: {
                                 name: 'Bournemouth',
                                 lat: 50.720806,
-                                lon: -1.904755
+                                lon: -1.904755,
+                                distance_in_km: 192.12345678
                             },
                             main_photo: 'http://thecatapi.com/api/images/get?format=src&type=gif',
                             compatibility_score: 0.90,
